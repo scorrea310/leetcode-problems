@@ -70,7 +70,16 @@ var beforeAndAfterPuzzles = function (phrases) {
 
 };
 
-//Space and Tiem Complexity analysis.
+
+
+/*
+Space and Time Complexity analysis.
+
+TIME: Should be Big(O)(n^2) because we have nested for loops as most expensive operation.
+
+SPACE: 
+
+*/
 
 
 

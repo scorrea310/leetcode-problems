@@ -34,8 +34,14 @@ var arrangeWords = function (text) {
 
 }
 
-//Space and Tiem Complexity analysis.
-/*--------------------------------------------------------------------*/s
+/*
+TIME AND SPACE COMPLEXITY ANALYSIS
+
+TIME: Should be O(n^2) because we have a for loop nested inside of while loop right?
+Will have to confirm this.
+
+
+*/
 
 
 
