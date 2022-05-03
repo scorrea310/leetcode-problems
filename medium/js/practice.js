@@ -26,8 +26,8 @@ let obj = {
 
 let message = "no";
 
-const func1 = (obj, msg) => {
-  obj[1] = "hey";
+const func1 = (obj1, msg) => {
+  obj1[1] = "hey";
   msg = "yes";
   message = 100;
   console.log(msg);
