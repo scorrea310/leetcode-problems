@@ -1,57 +1,37 @@
-// var lengthOfLongestSubstring = function (s) {
-//     let obj = {}
-//     let i = 0
-//     let c = 1
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function(s) {
+if(s.length == 1) return 1
 
-//     while (i < s.length - 1) {
+let longest = 0
+let startIndex = 0
+let sessionLongest = 0
+let endIndex = 0
+let mySet = new Set()
 
-//         if (obj[i] !== undefined) {
+while(startIndex < s.length && endIndex < s.length) {
+    let c = s[endIndex]
+    if(!mySet.has(c)) {
+        mySet.add(s[endIndex])
+        sessionLongest++
+        endIndex++
+    } else {
+        if(sessionLongest > longest) {
+            longest = sessionLongest
+        }
+        startIndex++
+        sessionLongest = 0
+        endIndex = startIndex
+        mySet.clear()
+  }
 
-//             if (obj[i].includes(s[c])) {
-//                 i = i + 1
-//                 c = i + 1
-//             } else {
-//                 obj[i] = obj[i] + s[c]
-//                 if (c < s.length - 1) {
-//                     c = c + 1
-//                 }
+}
 
-//             }
-//         } else {
+if(sessionLongest > longest) {
+    longest = sessionLongest
+}
 
-//             obj[i] = s[i]
-
-//             if (obj[i].includes(s[c])) {
-//                 i = i + 1
-//                 c = i + 1
-//             } else {
-//                 obj[i] = obj[i] + s[c]
-//                 if (c < s.length - 1) {
-//                     c = c + 1
-//                 }
-//             }
-//         }
-//     }
-
-//     let arraySubstring = Object.values(obj)
-
-//     let longest = arraySubstring[0]
-//     let amount = arraySubstring[0].length
-
-//     for (let i = 0; i < arraySubstring.length; i++) {
-
-//         if (arraySubstring[i].length > amount) {
-//             longest = arraySubstring[i]
-//             amount = arraySubstring[i].length
-//         }
-//     }
-
-
-//     return amount
-
-// };
-
-
-
-// console.log(lengthOfLongestSubstring("pww kew"))
-console.log("ghg fg".includes(""))
+return longest
+};
