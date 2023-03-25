@@ -35,3 +35,13 @@ if(sessionLongest > longest) {
 
 return longest
 };
+
+/*
+Time Complexity: O(N * log(n)):
+
+-for every n we go until we have a repeating char.
+-between O(N) and O(N^2)
+
+Space Complexity
+*/
+
