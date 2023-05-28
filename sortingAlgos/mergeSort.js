@@ -5,44 +5,46 @@ steps for mergeSort
 2. Merge sorted halves
 */
 
-function mergesort(arr) {
-    if(arr.length <= 1) return arr
+// Recursive Time complexity = O(N * log(N))
+// Recursive Space Complexity = O(N * log(N))
 
-    const midpoint = Math.floor(arr.length / 2);
-    const firstHalf = arr.slice(0, midpoint);
-    const secondHalf = arr.slice(midpoint);
-    
-    return merge(mergesort(firstHalf), mergesort(secondHalf)) 
+const mergeSort = (arr)=> {
+  if(arr.length <= 1) return arr
+  const middle = Math.floor(arr.length / 2)
+  const leftHalf = arr.slice(0, middle)
+  const rightHalf = arr.slice(middle)
+
+  return merge(mergeSort(leftHalf), mergeSort(rightHalf))
 }
 
-function merge(arrA, arrB) {
-  // Create an empty return array
-  let array = []
+const merge = (arr1, arr2)=> {
+  let returnArray = []
+  let arr1Index = 0
+  let arr2Index = 0
 
-  // Point to the first value of each array
-  let arrVal1Index = 0
-  let arrVal2Index = 0
-
-  while(arrVal1Index < arrA.length && arrVal2Index < arrB.length) {
-    if(arrA[arrVal1Index] <= arrB[arrVal2Index]) {
-        array.push(arrA[arrVal1Index])
-        arrVal1Index++
+  while(arr1Index < arr1.length && arr2Index < arr2.length) {
+    if(arr1[arr1Index] <= arr2[arr2Index]) {
+      returnArray.push(arr1[arr1Index])
+      arr1Index++
     } else {
-        array.push(arrB[arrVal2Index])
-        arrVal2Index++
+      returnArray.push(arr2[arr2Index])
+      arr2Index++
     }
   }
 
-  if(arrVal1Index < arrA.length) return array.concat(arrA.slice(arrVal1Index))
-  // Return the merged array
-  return array.concat(arrB.slice(arrVal2Index))
+  while(arr1Index < arr1.length) {
+    returnArray.push(arr1[arr1Index])
+    arr1Index++
+  }
+
+  while(arr2Index < arr2.length) {
+    returnArray.push(arr2[arr2Index])
+    arr2Index++
+  }
+
+  return returnArray
 }
 
 let array = [2, 5, 1, 7, 4, 3]
 
-console.log(mergesort(array))
-
-// Recursive Time complexity = O(N * log(N))
-// Recursive Space Complexity = O(N * log(N))
-
-
+console.log(mergeSort(array))
