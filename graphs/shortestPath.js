@@ -13,6 +13,7 @@ const shortestPath = (node1, node2) => {
     while(queue.length > 0) {
       let path = queue.shift()
       let currentNode = path[path.length - 1]
+      
       if(currentNode === node2) {
         return path
       } else {
