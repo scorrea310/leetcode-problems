@@ -19,3 +19,21 @@ function productExceptSelf(nums: number[]): number[] {
 
   return nums
 };
+
+// Time complexity: O(n)
+// Space Complexity: O(1)
+function productExceptSelfBetterSpaceComplexity(nums: number[]): number[] {
+  let answer = new Array(nums.length)
+  answer[0] = 1
+  for(let i = 1; i < nums.length; i++) {
+    answer[i] = answer[i - 1] * nums[i - 1]
+  }
+  let rightTotal = 1
+
+  for(let i = answer.length - 1; i >=0; i--) {
+    answer[i] = answer[i] * rightTotal
+    rightTotal = rightTotal * nums[i]
+  }
+
+  return answer
+};
