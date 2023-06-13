@@ -4,7 +4,7 @@
 function search(nums: number[], target: number): number {
     let left = 0
     let right = nums.length - 1
-    let middle;
+    let middle: number;
     while(left <= right) {
         middle = Math.floor(right - left / 2)
         if(nums[middle] === target) return middle
