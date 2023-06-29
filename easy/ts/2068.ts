@@ -32,3 +32,23 @@ function checkAlmostEquivalent(word1: string, word2: string): boolean {
   }
   return true;
 }
+
+var checkAlmostEquivalentVersion2 = function (word1, word2) {
+  const hash = {};
+
+  for (let c of word1) {
+    hash[c] = (hash[c] || 0) + 1;
+  }
+
+  for (let c of word2) {
+    hash[c] = (hash[c] || 0) - 1;
+  }
+
+  for (let c in hash) {
+    if (Math.abs(hash[c]) > 3) {
+      return false;
+    }
+  }
+
+  return true;
+};
