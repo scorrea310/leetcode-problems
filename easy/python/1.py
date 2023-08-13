@@ -10,29 +10,13 @@ class Solution(object):
 
         ordering = {}
         for i in range(len(nums)):
-            if nums[i] in ordering:
-                ordering[nums[i]] = [ordering[nums[i]], i]
+            if nums[i] in ordering and nums[i] * 2 == target:
+                return [ordering[nums[i]], i]
             else:
                 ordering[nums[i]] = i
 
-        nums.sort()
-
-        left = 0
-        right = len(nums) - 1
-
-        while left < right:
-            left_num = nums[left]
-            right_num = nums[right]
-
-            if left_num + right_num == target:
-                if left_num == right_num:
-                    return ordering[left_num]
-                return [ordering[left_num], ordering[right_num]]
-            if left_num + right_num < target:
-                left = left + 1
-            else:
-                right = right - 1
-
-        if nums[left] == nums[right]:
-            return ordering[nums[left]]
-        return [ordering[nums[left]], ordering[nums[right]]]
+        for element in nums:
+            if (target - element) in ordering and target - element != element:
+                if ordering[element] < ordering[target - element]:
+                    return [ordering[element], ordering[target - element]]
+                return [ordering[target - element], ordering[element]]
