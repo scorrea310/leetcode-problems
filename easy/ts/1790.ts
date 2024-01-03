@@ -2,7 +2,7 @@
 // Time: O(n)
 // Space: O(n)
 function areAlmostEqual(s1: string, s2: string): boolean {
-  let wrongCharsIndexes = [];
+  let wrongCharsIndexes: number[] = [];
   for (let i = 0; i < s2.length; i++) {
     let s1Let = s1[i];
     let s2Let = s2[i];
