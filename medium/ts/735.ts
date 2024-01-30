@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/asteroid-collision/?envType=study-plan-v2&envId=leetcode-75
+// Time and Space: O(n)
 function asteroidCollision(asteroids: number[]): number[] {
   let stack: number[] = [];
   let i = 0;
